@@ -12,7 +12,7 @@ jobs:
           command: npm install
       - run:
           name: Build the application
-          command: npm run build
+          command: node index.js
       
 workflows:
   version: 2
