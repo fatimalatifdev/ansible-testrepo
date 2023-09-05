@@ -2,17 +2,11 @@
 version: 2
 jobs:
   build:
-    docker:
-      - image: circleci/node:8.9.1
+    docker: 
+      - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
     steps:
-      - checkout
-      - setup_remote_docker
-      - run:
-          name: Install dependencies
-          command: npm install
-      - run:
-          name: Build the application
-          command: node index.js
+      - checkout # check out the code in the project directory
+      - run: echo "hello world
       
 workflows:
   version: 2
