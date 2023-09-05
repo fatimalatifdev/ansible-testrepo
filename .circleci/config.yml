@@ -1,0 +1,22 @@
+
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8.9.1
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Install dependencies
+          command: npm install
+      - run:
+          name: Build the application
+          command: npm run build
+      
+workflows:
+  version: 2
+  build-test-app:
+    jobs:
+      - build
+      
