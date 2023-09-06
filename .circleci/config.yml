@@ -9,8 +9,8 @@ jobs:
       - run:
           name: Install dependencies
           command: npm install
-      - expose_docker_socket:
-          hostname: docker-host
+      - setup_remote_docker:
+          docker_layer_caching: true
       - run:
           name: run the code
           command: node index.js
