@@ -3,17 +3,15 @@ version: 2
 jobs:
   build:
     docker: 
-      - image: circleci/node:16 # the primary container, where your job's commands are run
+      - image: circleci/node:8.9.1 # the primary container, where your job's commands are run
     steps:
       - checkout # check out the code in the project directory
       - run:
           name: Install dependencies
           command: npm install
-      - setup_remote_docker:
-          docker_layer_caching: true
       - run:
-          name: run the code
-          command: node index.js
+          name: run the application
+          command: npm run build
 
       
 workflows:
