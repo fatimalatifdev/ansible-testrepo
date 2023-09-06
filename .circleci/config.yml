@@ -2,16 +2,30 @@
 version: 2
 jobs:
   build:
-    docker: 
-      - image: circleci/node:8.9.1 # the primary container, where your job's commands are run
+    docker:
+      - image: circleci/node:8.9.1
     steps:
-      - checkout # check out the code in the project directory
+      - checkout
+      - setup_remote_docker
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Install dependencies
           command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
       - run:
-          name: run the application
+          name: Build the application
           command: npm run build
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - package.json
+            - node_modules
+            - src
+            - build
 
       
 workflows:
