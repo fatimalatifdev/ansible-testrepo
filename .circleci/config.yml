@@ -18,13 +18,13 @@ jobs:
       - run:
           name: Build the application
           command: npm run build
-     # - persist_to_workspace:
-       #   root: ./
-      #    paths:
-       #     - package.json
-       #     - node_modules
-        #    - src
-        #    - build
+      - persist_to_workspace:
+          root: ./test
+          paths:
+            - package.json
+            - node_modules
+            - src
+            - build
 
       
 workflows:
