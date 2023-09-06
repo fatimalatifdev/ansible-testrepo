@@ -11,7 +11,7 @@ jobs:
           command: npm install
       - run:
           name: run the application
-          command: npm run build
+          command: npm start
 
       
 workflows:
