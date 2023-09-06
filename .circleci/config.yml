@@ -6,8 +6,8 @@ jobs:
       - image: circleci/node:16 # the primary container, where your job's commands are run
     steps:
       - checkout # check out the code in the project directory
-      - RUN npm install
-      - RUN:
+      - run npm install
+      - run:
           command: |
             node index.js
       
