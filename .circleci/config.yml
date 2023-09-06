@@ -2,6 +2,7 @@
 version: 2
 jobs:
   build:
+    working_directory: ./test-ansible-app
     docker:
       - image: circleci/node:17
     steps:
@@ -19,7 +20,7 @@ jobs:
           name: Build the application
           command: npm run build
       - persist_to_workspace:
-          root: ./test
+          root: ./test-ansible-app
           paths:
             - package.json
             - node_modules
