@@ -26,8 +26,13 @@ jobs:
             - node_modules
             - src
             - build
-
-      
+  deploy:
+    docker:
+      - image: cimg/aws:2023.08
+    steps:
+      - checkout
+      - run: aws --version
+    
 workflows:
   version: 2
   build-test-app:
