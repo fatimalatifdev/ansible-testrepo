@@ -6,26 +6,26 @@ jobs:
       - image: circleci/node:17
     steps:
       - checkout
-      - setup_remote_docker
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+      #- setup_remote_docker
+      #- restore_cache:
+       #   key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Install dependencies
           command: npm install
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - node_modules
+     # - save_cache:
+     #     key: dependency-cache-{{ checksum "package.json" }}
+      #    paths:
+      #      - node_modules
       - run:
           name: Build the application
           command: npm run build
-      - persist_to_workspace:
-          root: ./
-          paths:
-            - package.json
-            - node_modules
-            - src
-            - build
+     # - persist_to_workspace:
+       #   root: ./
+      #    paths:
+       #     - package.json
+       #     - node_modules
+        #    - src
+        #    - build
 
       
 workflows:
