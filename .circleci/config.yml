@@ -9,6 +9,8 @@ jobs:
       - run:
           name: Install dependencies
           command: npm install
+      - expose_docker_socket:
+          hostname: docker-host
       - run:
           name: run the code
           command: node index.js
