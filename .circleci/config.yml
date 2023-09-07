@@ -35,7 +35,7 @@ jobs:
           at: ~/test-ansible-app
       - run: aws --version
       - run:
-          name: "Print an env var stored in the Project"
+          name: "Print the value of env var stored in the Project"
           command: echo ${AWS_ACCESS_KEY_ID}
     
       - run: aws s3 sync ~/test-ansible-app/build/ s3://circleci-app-dev-s3-us-east-1
