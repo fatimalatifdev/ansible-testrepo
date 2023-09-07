@@ -46,9 +46,16 @@ workflows:
   build-test-app:
     jobs:
       - build
+      - hold:
+          type: approval # presents manual approval button in the UI
+          requires:
+            - build
       - deploy:
           context: aws_cedentials
           requires:
             - build
+            - hold
+
+  
 
       
