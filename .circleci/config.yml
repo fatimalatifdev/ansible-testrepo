@@ -40,17 +40,13 @@ jobs:
               py-pip=9.0.0-r1
             pip install \
               awscli==1.14.37
-            # # Login to ecr and docker login
-            # aws_login=`aws ecr get-login --no-include-email --region eu-west-1`
-            # eval $aws_login
-            # aws s3 sync build/ s3://test-another-app
       - run: aws --version
       # - run:
       #     name: Process template file
       #     environment:
       #       AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
       #       AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
-      - run: aws s3 sync build/ s3://circleci-app-dev-s3-us-east-1
+      - run: aws s3 sync ~/test-ansible-app/build/ s3://circleci-app-dev-s3-us-east-1
     
     
 workflows:
