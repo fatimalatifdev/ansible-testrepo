@@ -42,8 +42,9 @@ jobs:
               awscli==1.14.37
       - run: aws --version
       - run:
-          AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
-          AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+          name: "Print an env var stored in the Project"
+          command: echo ${AWS_ACCESS_KEY_ID}
+    
       - run: aws s3 sync ~/test-ansible-app/build/ s3://circleci-app-dev-s3-us-east-1
     
     
