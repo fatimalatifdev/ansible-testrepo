@@ -28,7 +28,7 @@ jobs:
             - build
   deploy:
     docker:
-      - image: cimg/aws:2023.08
+      - image: docker:17.05.0-ce-git
     steps:
       - checkout
       - attach_workspace:
