@@ -54,6 +54,8 @@ workflows:
     jobs:
       - build
       - deploy:
-            requires:
+          context: aws_cedentials
+          requires:
             - build
+
       
