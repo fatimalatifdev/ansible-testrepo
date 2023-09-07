@@ -33,13 +33,13 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/test-ansible-app
-      - run:
-          #Get all pre-requisites
-          # command: |
-          #   apk add --no-cache \
-          #     py-pip=9.0.0-r1
-          #   pip install \
-          #     awscli==1.14.37
+      # - run:
+      #     #Get all pre-requisites
+      #     # command: |
+      #     #   apk add --no-cache \
+      #     #     py-pip=9.0.0-r1
+      #     #   pip install \
+      #     #     awscli==1.14.37
       - run: aws --version
       - run:
           name: "Print an env var stored in the Project"
