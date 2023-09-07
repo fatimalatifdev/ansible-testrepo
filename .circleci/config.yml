@@ -33,15 +33,11 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/test-ansible-app
-      - run: 
-          command: |
-            aws --version
+      - run: aws --version
           environment:
             AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
             AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
-          - run:
-              command: |
-                aws s3 sync build/ s3://circleci-app-dev-s3-us-east-1
+          - run: aws s3 sync build/ s3://circleci-app-dev-s3-us-east-1
     
     
 workflows:
