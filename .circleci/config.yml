@@ -41,11 +41,10 @@ jobs:
             pip install \
               awscli==1.14.37
       - run: aws --version
-      # - run:
-      #     name: Process template file
-      #     environment:
-      #       AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
-      #       AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+      - run:
+          environment:
+            AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+            AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
       - run: aws s3 sync ~/test-ansible-app/build/ s3://circleci-app-dev-s3-us-east-1
     
     
